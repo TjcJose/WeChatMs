@@ -138,5 +138,7 @@ Page({
     if (0 == inputValue.length){
       return
     }
+
+    console.log(inputValue)
   }
 })
