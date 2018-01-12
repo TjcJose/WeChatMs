@@ -1,0 +1,152 @@
+/* pages/main/main.wxss */
+
+.search-wrp {
+  width: 100%;
+  height: 80rpx;
+  flex-direction: row;
+  display: flex;
+  margin: 20rpx;
+}
+
+.search-left {
+  width: 13%；;
+}
+
+.search-left-img {
+  width: 80rpx;
+  height: 80rpx;
+}
+
+.search-middle {
+  width: 65%;
+}
+
+.search-input {
+  height: 80rpx;
+  border: 1rpx solid #e8e8e8;
+  border-right: none;
+  border-top-left-radius: 50rpx;
+  border-bottom-left-radius: 50rpx;
+  padding-left: 15rpx;
+}
+
+.search-placeholder {
+  font-family: Arial, Helvetica, sans-serif;
+  color: silver;
+  font-size: 28rpx;
+}
+
+.search-right {
+  width: 22%;
+}
+
+.search-right-img {
+  width: 60rpx;
+  height: 80rpx;
+  border-top: 1rpx solid #e8e8e8;
+  border-bottom: 1rpx solid #e8e8e8;
+}
+
+.search-right-lab {
+  height: 80rpx;
+  border-top: 1rpx solid #e8e8e8;
+  border-bottom: 1rpx solid #e8e8e8;
+}
+
+.search-right-button {
+  width: 80rpx;
+  height: 66rpx;
+  padding-top: 15rpx;
+  font-size: 32rpx;
+  position: fixed;
+  border-top: 1rpx solid #e8e8e8;
+  border-bottom: 1rpx solid #e8e8e8;
+  border-top-right-radius: 50rpx;
+  border-right: 1rpx solid #e8e8e8;
+  border-bottom-right-radius: 50rpx;
+}
+
+.swiper {
+  height: 300rpx;
+  width: 100%;
+}
+
+.swiper image {
+  height: 100%;
+  width: 100%;
+}
+
+.take-photo{
+  height: 300rpx;
+  width: 100%;
+}
+
+.locationImg{
+  width: 34rpx;
+  height: 34rpx;
+}
+
+.locationDescriptionView{
+  margin-left: 15rpx;
+  font-size: 28rpx;
+  padding-left: 10rpx;
+}
+
+.locationDescriptionView scroll-view{
+  height: 200rpx;
+}
+
+/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/  
+/*::-webkit-scrollbar  
+{  
+    width: 16px;  
+    height: 16px;  
+    background-color: #F5F5F5;  
+}*/
+
+.middle-title{
+  text-align: center;
+  margin-top: 30rpx;
+}
+
+.suggest-title text{
+  font-size: 35rpx;
+}
+
+.suggest-data{
+  margin-top: 15rpx;
+  height: 230rpx;
+}
+
+.suggest-data-view{
+  padding-top: 8rpx;
+  margin-left: 15rpx;
+  border-top: 3rpx solid #e8e8e8;
+}
+
+.suggest-data image{
+  width: 40%;
+  height: 230rpx;
+  float: left;
+  padding-right: 20rpx;
+}
+
+.suggest-data-title{
+  height: 80rpx;
+}
+
+.suggest-data label{
+  width: 60%;
+  font-size: 45rpx;
+}
+
+.suggest-data-description{
+  height: 150rpx;
+  overflow:hidden;
+}
+
+.suggest-data text{
+  font-size: 28rpx;
+}
+
+

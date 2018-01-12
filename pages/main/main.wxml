@@ -1,0 +1,59 @@
+<!--pages/main/main.wxml-->
+
+<view id='searchSection' class='section'>
+  <view class="search-wrp">
+    <view class="search-left">
+      <image class='search-left-img' src='/res/img/camare.png' bindtap='gotoPhoto'></image>
+    </view>
+    <view class="search-middle">
+      <input maxlength='30' class='search-input' placeholder="寻找你想去吃的那地儿" placeholder-class='search-placeholder' focus="{{focus}}" bindinput="bindKeyInput" />
+    </view>
+    <view class="search-right" bindtap='searchMs'>
+      <image class='search-right-img' src='/res/img/search.png'></image>
+      <label class='theme-color search-right-button' >觅食</label>
+    </view>
+  </view>
+</view>
+
+<view id='swiperSection'>
+  <swiper class="swiper" indicator-dots="true" autoplay="true" interval="5000" duration="1000">
+    <block wx:for="{{movies}}" wx:key="unique" wx:for-index="index">
+      <swiper-item>
+        <image src="{{item.url}}" class="slide-image" mode="aspectFill" />
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+
+<view id="locationSection">
+  <view class='middle-title theme-color'>
+    <image class='locationImg' src='{{locationImg}}'></image>
+    <label>{{locationName}}</label>
+  </view>
+  <view class='locationDescriptionView'>
+    <scroll-view scroll-y="true">
+      <label>{{locationDescription}}</label>
+    </scroll-view>
+  </view>
+
+</view>
+
+<view id='suggestNextStation'>
+  <view class='middle-title theme-color'>
+    <text>美食推荐</text>
+  </view>
+  <navigator id='suggest-data' class='suggest-data' wx:for="{{suggestItems}}" wx:key="unique">
+    <view class='suggest-data-view'>
+      <image mode='aspectFit' src='{{item.url}}'></image>
+      <view id="suggest-content">
+        <view class='suggest-data-title'>
+          <label>{{item.title}}</label>
+        </view>
+        <view class='suggest-data-description'>
+          <text>{{item.description}}</text>
+        </view>
+      </view>
+    </view>
+  </navigator>
+</view>
+<!--<image id='takePhoto' class='take-photo' src="{{photoSrc}}"></image>-->

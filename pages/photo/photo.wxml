@@ -1,0 +1,13 @@
+<!--pages/photo/photo.wxml-->
+
+<view class='photoSection'>
+  <view>
+    <image class='photoClass' mode='aspectFill' style='height:{{_cameraHeight}}px' src='{{photoSrc}}'></image>
+  </view>
+  <view class='viewAnimation'>
+    <image class='imgAnimation1' mode='aspectFill' src='{{imgUrl}}' animation="{{animationData}}"></image>
+    <image class='imgAnimation2' mode='aspectFill' src='{{imgUrl}}' animation="{{animationData}}"></image>
+    <image class='imgAnimation3' mode='aspectFill' src='{{imgUrl}}' animation="{{animationData3}}"></image>
+    <image class='imgAnimation4' mode='aspectFill' src='{{imgUrl}}' animation="{{animationData}}"></image>
+  </view>
+</view>

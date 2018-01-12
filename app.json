@@ -1,0 +1,50 @@
+{
+  "pages":[
+    "pages/main/main",
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/search/search",
+    "pages/person/person",
+    "pages/photo/photo"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/main/main",
+        "text": "觅食",
+        "iconPath": "res/img/find.png",
+        "selectedIconPath": "res/img/find-select.png"
+      },
+      {
+        "pagePath": "pages/search/search",
+        "text": "食记",
+        "iconPath": "res/img/cookbook.png",
+        "selectedIconPath": "res/img/cookbook-select.png"
+      },
+      {
+        "pagePath": "pages/logs/logs",
+        "text": "广场",
+        "iconPath": "res/img/square.png",
+        "selectedIconPath": "res/img/square-select.png"
+      },
+      {
+        "pagePath": "pages/person/person",
+        "text": "我的",
+        "iconPath": "res/img/my.png",
+        "selectedIconPath": "res/img/my-select.png"
+      }
+    ],
+    "selectedColor": "#f19d3d"
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  },
+  "debug": true
+}
