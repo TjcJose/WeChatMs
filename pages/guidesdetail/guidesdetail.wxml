@@ -1,0 +1,26 @@
+<!--pages/guidesdetail/guidesdetail.wxml-->
+<view>
+  <view class="title">
+    Chikalicious作为火爆纽约整整十年的甜品界神话，自然是拿下了魔都甜品一姐的地位，主打的“3-course Prix Fixe menu”三道式创意甜品更是场场火爆，如果不提前预定，可能会白跑一趟哦！
+  </view>
+  <image mode='aspectFit' src='http://cdnssl.youyuwei.com/o_1ap2tb43716kkdbant9aqk2mij.jpg'>
+  </image>
+  <image mode='aspectFit' src='http://cdnssl.youyuwei.com/o_1ap2tckif14kfvgfj64bgo1jen12.jpg'>
+  </image>
+  <view class="description">
+    Chikalicious作为火爆纽约整整十年的甜品界神话，自然是拿下了魔都甜品一姐的地位，主打的“3-course Prix Fixe menu”三道式创意甜品更是场场火爆，如果不提前预定，可能会白跑一趟哦！
+  </view>
+  <image mode='aspectFit' src='http://cdnssl.youyuwei.com/o_1ap2tbqgq1dbp1ng81buarf65fuo.jpg'>
+  </image>
+  <image mode='aspectFit' src='http://cdnssl.youyuwei.com/o_1ap2tc8661k4m15ent1980918l0t.jpg'>
+  </image>
+  <view class="description">
+    Chikalicious
+  </view>
+  <view class="description">
+    地址：卢湾区 兴业路123弄5号新天地新里106单元及205a
+  </view>
+  <view class="description">
+    电话：021-63339233
+  </view>
+</view>

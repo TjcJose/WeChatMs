@@ -1,0 +1,30 @@
+/* pages/my/my.wxss */
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+}
+
+.my-item{
+	border-bottom: 1rpx solid #ddd;
+	padding: 20rpx;
+	font-size: 32rpx;
+	background: #fff url('/res/img/xiangyou1.png') no-repeat 98% 50% / auto 36rpx;
+}
+.my-item image{
+	width: 40rpx;
+	height: 40rpx;
+	margin-right: 20rpx;
+	vertical-align: -6rpx;
+}

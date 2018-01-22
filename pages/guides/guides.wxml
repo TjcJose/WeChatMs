@@ -1,0 +1,17 @@
+<!--pages/guides/guides.wxml-->
+<view class="listitemWrap" wx:for='{{listItems}}' wx:key="unique">
+  <view class="image_thumbView">
+    <navigator class="image_thumbView" hover-class="navigator-hover" url="../guidesdetail/guidesdetail?id={{item.id}}">
+      <image class="image_thumb" mode="aspectFit" src="{{item.url}}" />
+    </navigator>
+  </view>
+  <text class="text_description">{{item.description}}</text>
+  <view class="bottomGrayboder listitemInfoWrap">
+    <view class="likeinfo">
+      <image wx:if="{{item.is_like == 'y'}}" bindtap='likeBtnTap' class="likebtn" src="{{likeUrl}}" data-like="{{item.is_like}}" data-objId='{{index}}' />
+      <image wx:else="{{item.is_like == 'n'}}" bindtap='likeBtnTap' class="likebtn" src="{{unlikeUrl}}" data-like="{{item.is_like}}" data-objId='{{index}}' />
+      <text class="c-block likeinfo_count" data-objId='{{index}}'>{{item.likecount}}</text>
+    </view>
+    <text class="listitem_creattime">{{item.creattime}}</text>
+  </view>
+</view>

@@ -1,43 +1,46 @@
 {
-  "pages":[
+  "pages": [
     "pages/main/main",
     "pages/index/index",
     "pages/logs/logs",
     "pages/search/search",
-    "pages/person/person",
-    "pages/photo/photo"
+    "pages/photo/photo",
+    "pages/guides/guides",
+    "pages/guidesdetail/guidesdetail",
+    "pages/my/my",
+    "pages/foods/foods"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle": "black"
   },
   "tabBar": {
     "list": [
       {
         "pagePath": "pages/main/main",
         "text": "觅食",
-        "iconPath": "res/img/find.png",
-        "selectedIconPath": "res/img/find-select.png"
+        "iconPath": "res/img/tabbar/find.png",
+        "selectedIconPath": "res/img/tabbar/find-select.png"
       },
       {
-        "pagePath": "pages/search/search",
+        "pagePath": "pages/foods/foods",
         "text": "食记",
-        "iconPath": "res/img/cookbook.png",
-        "selectedIconPath": "res/img/cookbook-select.png"
+        "iconPath": "res/img/tabbar/cookbook.png",
+        "selectedIconPath": "res/img/tabbar/cookbook-select.png"
       },
       {
-        "pagePath": "pages/logs/logs",
-        "text": "广场",
-        "iconPath": "res/img/square.png",
-        "selectedIconPath": "res/img/square-select.png"
+        "pagePath": "pages/guides/guides",
+        "text": "攻略",
+        "iconPath": "res/img/tabbar/square.png",
+        "selectedIconPath": "res/img/tabbar/square-select.png"
       },
       {
-        "pagePath": "pages/person/person",
+        "pagePath": "pages/my/my",
         "text": "我的",
-        "iconPath": "res/img/my.png",
-        "selectedIconPath": "res/img/my-select.png"
+        "iconPath": "res/img/tabbar/my.png",
+        "selectedIconPath": "res/img/tabbar/my-select.png"
       }
     ],
     "selectedColor": "#f19d3d"

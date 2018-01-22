@@ -1,0 +1,35 @@
+<!--pages/my/my.wxml-->
+<view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 用户信息授权 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+
+<!--
+<view class="container">
+	<view class="my-list">
+		<navigator class="my-item" url="../myconferencelist/myconferencelist">
+			<image src="/res/img/icon_24.png" mode="aspectFit"></image>
+			<text>入驻申请</text>
+		</navigator>
+		<navigator class="my-item" url="../myconferencelist/myconferencelist">
+			<image src="/res/img/icon_26.png" mode="aspectFit"></image>
+			<text>物业服务</text>
+		</navigator>
+		<navigator class="my-item" url="../myconferencelist/myconferencelist">
+			<image src="/res/img/icon_28.png" mode="aspectFit"></image>
+			<text>会议室预订</text>
+		</navigator>
+		<navigator class="my-item" url="../myconferencelist/myconferencelist">
+			<image src="/res/img/icon_30.png" mode="aspectFit"></image>
+			<text>问题反馈</text>
+		</navigator>
+		<navigator class="my-item" url="../myconferencelist/myconferencelist">
+			<image src="/res/img/icon_32.png" mode="aspectFit"></image>
+			<text>云资源申请</text>
+		</navigator>
+	</view>
+</view>
+-->
