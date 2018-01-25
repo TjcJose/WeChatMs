@@ -1,35 +1,33 @@
 <!--pages/my/my.wxml-->
 <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 用户信息授权 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
-  </view>
+  <block wx:if="{{hasUserInfo && canIUse}}">
+    <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+  </block>
+  <button wx:else open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 用户授权</button>
+</view>
 
+<view class="searchLog" wx:for="searchLogItems" wx:key="unique">
+  <text class="searchLogDate">{{item.date}}</text>
+  <image class="searchLogImg" src="{{item.src}}"></image>
+</view>
 <!--
 <view class="container">
-	<view class="my-list">
-		<navigator class="my-item" url="../myconferencelist/myconferencelist">
-			<image src="/res/img/icon_24.png" mode="aspectFit"></image>
-			<text>入驻申请</text>
-		</navigator>
-		<navigator class="my-item" url="../myconferencelist/myconferencelist">
-			<image src="/res/img/icon_26.png" mode="aspectFit"></image>
-			<text>物业服务</text>
-		</navigator>
-		<navigator class="my-item" url="../myconferencelist/myconferencelist">
-			<image src="/res/img/icon_28.png" mode="aspectFit"></image>
-			<text>会议室预订</text>
-		</navigator>
-		<navigator class="my-item" url="../myconferencelist/myconferencelist">
-			<image src="/res/img/icon_30.png" mode="aspectFit"></image>
-			<text>问题反馈</text>
-		</navigator>
-		<navigator class="my-item" url="../myconferencelist/myconferencelist">
-			<image src="/res/img/icon_32.png" mode="aspectFit"></image>
-			<text>云资源申请</text>
-		</navigator>
-	</view>
+  <view class="form-wrap">
+    <view class="flex-wrap input-wrap">
+      <text class="label">标题</text>
+      <input bindinput="updateTitle" id="title" class="account-info-input"/>
+    </view>
+    <view class="flex-wrap input-wrap">
+      <text class="label">描述</text>
+      <input bindinput="updateDescription" id="description" class="account-info-input"/>
+    </view>
+    <view class="flex-wrap input-wrap">
+      <text class="label">图片</text>
+      <input bindinput="updatePicture" id="picture" class="account-info-input"/>
+    </view>
+  </view>
+  <text wx:if="{{error}}" class="error">{{error}}</text>
+  <button class="submit" type="primary" disabled="{{!(title || description)}}" bindtap="save">提交</button>
 </view>
 -->

@@ -1,6 +1,10 @@
 // pages/main/main.js
 // 输入框输入的值
 var inputValue = ''
+// 小程序的AppId和APPSecret
+const XCX_APP_ID = 'wx593a8852386d6854';
+const XCX_APP_SECRET = 'abb7c4983aa996930e5d42c71fd8ddae';
+const app = getApp()
 
 Page({
 
@@ -56,7 +60,28 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    // 登录
+    wx.login({
+      success: res => {
+        //调用request请求api转换登录凭证  
+        wx.request({
+          url: 'https://api.weixin.qq.com/sns/jscode2session',
+          data: {
+            appid: XCX_APP_ID,
+            secret: XCX_APP_SECRET,
+            js_code: res.code,
+            grant_type: 'authorization_code'
+          },
+          header: {
+            'content-type': 'application/json'
+          },
+          method: 'GET',
+          success: function (res) {
+            app.globalData.openId = res.data.openid; //获取openid 
+          },
+        })
+      }
+    })
   },
 
   /**

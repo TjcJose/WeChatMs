@@ -1,4 +1,11 @@
 // pages/photo/photo.js
+// 注册LeanCloud的JS文件
+const AV = require('../../utils/av-live-query-weapp-min');
+const BaiduAK = 'jYfflComxxErOUU6gHrO3cGl'
+const BaiduSK = 'PtynvWyxIdW8dDrgaVIhPkw9PhQkdswU'
+
+const app = getApp()
+
 Page({
 
   /**
@@ -17,62 +24,150 @@ Page({
     var that = this;
     animationFun.call(that);
     wx.getSystemInfo({
-      success: function(res) {
+      success: function (res) {
         that.setData({
-          _cameraHeight:res.screenHeight,
+          _cameraHeight: res.screenHeight,
           photoSrc: getApp().PhotoSrc
         })
+
+        that.addSearchPicture();
+
+        //百度云图片检索
+        //that.addBaiduSimilar()
+
+        /*new AV.File('file-name', {
+          blob: {
+            uri: getApp().PhotoSrc,
+          },
+        }).save().then(
+          file => console.log(file.url())
+          ).catch(console.error);*/
       }
     })
   },
 
   /**
+   * LeanCloud添加图片
+   */
+  addSearchPicture: function () {
+    var photoFile = new AV.File('SearchPicture', {
+      blob: {
+        uri: app.PhotoSrc,
+      },
+    })
+    // 设置文件的用户openId
+    photoFile.metaData('openId', app.globalData.openId);
+
+    photoFile.save().then(
+      file => console.log(file.url())
+    ).catch(console.error);
+  },
+  /**
+   * 获取百度的Token
+   */
+  getBaiduToken: function () {
+    /*var getTokenUrl = 'https://aip.baidubce.com/oauth/2.0/token?grant_type=client_credentials&client_id=' + BaiduAK + '&client_secret=' + BaiduSK
+    wx.request({
+      url: getTokenUrl, 
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success: function (res) {
+        console.log(res.data)
+      }
+    })*/
+
+    return '24.02b0e35457db3376dff9054db5986318.2592000.1519267322.282335-10602762'
+  },
+  /**
+   * 相似图的检索
+   */
+  getBaiduSimilar: function () {
+    var getSimilarUrl = 'https://aip.baidubce.com/rest/2.0/image-classify/v1/realtime_search/similar/search?access_token=';
+    var that = this;
+    getSimilarUrl = getSimilarUrl + that.getBaiduToken();
+
+    wx.request({
+      url: getSimilarUrl, //仅为示例，并非真实的接口地址
+      header: {
+        'content-type': 'application/x-www-form-urlencoded' // 默认值
+      },
+      success: function (res) {
+        console.log(res.data)
+      }
+    })
+  },
+  /**
+     * 相似图的增加
+     */
+  addBaiduSimilar: function () {
+    var addSimilarUrl = 'https://aip.baidubce.com/rest/2.0/image-classify/v1/realtime_search/similar/add?access_token=';
+    var that = this;
+    addSimilarUrl = addSimilarUrl + that.getBaiduToken();
+    wx.request({
+      url: addSimilarUrl,
+      method: 'POST', //默认是GET，所以要添加
+      data: {
+        image: 'http://ac-ktfekbup.clouddn.com/7e47906de7b2b5cf71e3.PNG',
+        brief: 'id:0003'
+      },
+      header: {
+        'content-type': 'application/x-www-form-urlencoded' // 默认值
+      },
+      success: function (res) {
+        console.log(res.data)
+      }
+    })
+  },
+
+
+  /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    
+
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-  
+
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-  
+
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-  
+
   },
 
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
+
   },
   /*takePhoto() {
     const ctx = wx.createCameraContext()
@@ -90,7 +185,7 @@ Page({
   }
 })
 
-function animationFun(){
+function animationFun() {
   //实例化一个动画
   var animation = wx.createAnimation({
 
