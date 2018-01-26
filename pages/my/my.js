@@ -12,6 +12,7 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    searchLogItems: [],
   },
 
   /**
@@ -64,19 +65,6 @@ Page({
         },
       })
     });
-
-    // 获取查询的历史数据
-    var query = new AV.Query('_File');
-    query.equalTo("name", "SearchPicture.jpg")
-    query.contains("metaData", "ogvkh0a7uiN8QTOU2xV4OTMuHpDE")
-    
-    query.descending('createdAt');
-    query.find().then(function (results) {
-      // 如果这样写，第二个条件将覆盖第一个条件，查询只会返回 priority = 1 的结果
-      console.log(results[0])
-      //console.log(results[0].attributes.metaData.openId)
-    }, function (error) {
-    });
   },
   getUserInfo: function (e) {
     app.globalData.userInfo = e.detail.userInfo
@@ -97,7 +85,32 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    // 获取图片数据，Onload不会再次加载，OnShow会每次重新加载
+    // 解决图片上传后，获取不到的感刚刚上传的图片Bug
 
+    var that = this;
+    // 获取用户查询的历史图片
+    var query = new AV.Query('_File');
+    // 文件名
+    query.contains("name", app.globalData.openId)
+    // 按创建时间降序
+    query.descending('createdAt');
+    query.find().then(function (results) {
+      // 如果这样写，第二个条件将覆盖第一个条件
+      console.debug(results)
+      var mySearchLogItems = results.filter(function (item, index, array) {
+        // type用来表示什么类型的操作，1：图片检索日志，0：头像
+        return item.attributes.metaData.type === "1";
+      }).map(function (item, index, array) {
+        // toLocaleString()时间的格式化
+        var searchLog = { date: item.createdAt.toLocaleString(), src: item.attributes.url + "?imageView2/2/h/400" }
+        return searchLog
+      })
+      that.setData({
+        searchLogItems: mySearchLogItems,
+      })
+    }, function (error) {
+    });
   },
 
   /**

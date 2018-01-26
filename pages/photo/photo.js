@@ -50,13 +50,13 @@ Page({
    * LeanCloud添加图片
    */
   addSearchPicture: function () {
-    var photoFile = new AV.File('SearchPicture', {
+    var photoFile = new AV.File(app.globalData.openId, {
       blob: {
         uri: app.PhotoSrc,
       },
     })
     // 设置文件的用户openId
-    photoFile.metaData('openId', app.globalData.openId);
+    photoFile.metaData('type', "1");
 
     photoFile.save().then(
       file => console.log(file.url())

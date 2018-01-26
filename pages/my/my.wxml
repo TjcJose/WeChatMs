@@ -7,9 +7,12 @@
   <button wx:else open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 用户授权</button>
 </view>
 
-<view class="searchLog" wx:for="searchLogItems" wx:key="unique">
+<view class="searchLog" wx:for="{{searchLogItems}}" wx:key="unique">
   <text class="searchLogDate">{{item.date}}</text>
   <image class="searchLogImg" src="{{item.src}}"></image>
+</view>
+<view wx:if="{{searchLogItems.length > 0}}" class='pointText'>
+<text>没有更多</text>
 </view>
 <!--
 <view class="container">

@@ -4,7 +4,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 300rpx;
+  height: 220rpx;
 }
 
 .userinfo-avatar {
@@ -61,15 +61,26 @@
 }
 
 .searchLog {
-  width: 100%;
   height: 350rpx;
+  text-align: center;
+  padding: 40rpx;
+  border-bottom: 3rpx #eee solid;
+  color: #aaa;
 }
 
 .searchLogDate {
-  text-align: center;
+  font-size: 28rpx;
 }
 
 .searchLogImg {
-  width:100%;
+  width: 100%;
   height: 300rpx;
+}
+
+.pointText {
+  color: #aaa;
+  font-size: 26rpx;
+  text-align: center;
+  margin-top: 30rpx;
+  margin-bottom: 30rpx;
 }
